@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   build:
+    # Skip in the template repository itself; run in every repository created from it.
+    if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
